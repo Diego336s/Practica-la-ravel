@@ -24,7 +24,10 @@
                             </svg></span>
                         <label class="label">Email</label>
                     </div>
-                    <div class="field">
+                    @error('email')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
+                    <div class="field mt-3">
                         <input name="password" required type="password" class="input">
                         <span class="span"><svg class="" xml:space="preserve"
                                 style="enable-background:new 0 0 512 512" viewBox="0 0 512 512" y="0" x="0" height="20"
@@ -38,6 +41,9 @@
                             </svg></span>
                         <label class="label">Password</label>
                     </div>
+                    @error('password')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
                     <div class="forgot-pass">
                         <a href="#">Forgot Password?</a>
                     </div>

@@ -28,7 +28,7 @@ class RegistroRequest extends FormRequest
             "apellido" => "required|string|max:255",
             "name" => 'required|string|max:255',
             "email" => "required|email|lowercase|unique:users,email,except,id",
-            "documento" => 'required|string|unique:users,documento,except,id',
+            "documento" => 'required|string|unique:users,documento',
             "password" => ['required', 'min:8', Rules\Password::defaults()]
         ];
     }

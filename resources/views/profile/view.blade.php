@@ -20,16 +20,14 @@
                         <p><i class="bi bi-envelope-at-fill"></i> {{ $user->email }}</p>
                         <div class="row">
                             <div class="col-6">
-                                <form action="{{ route('profile.destroy') }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                   
-                                    <!-- Button trigger modal -->
-                                    <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal">
-                                       <i class="bi bi-trash3"></i>
-                                    </button>
-                                </form>
+
+
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal">
+                                    <i class="bi bi-trash3"></i>
+                                </button>
+
                             </div>
                             <div class="col-6">
                                 <a href="{{ route('profile.edit') }}" class="btn btn-outline-primary"><i
@@ -51,29 +49,40 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Seguro que quieres elimar tu cuenta?
+                                    </h1>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                                 </div>
-                                <div class="modal-body">
-                                    ...
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
-                                </div>
+                                <form action="{{ route('profile.destroy') }}" method="POST">
+                                    <div class="modal-body">
+
+                                        @csrf
+                                        @method('DELETE')
+                                        <p>Escribe tu contraseña, para continuar</p>
+                                        <div class="input-group">
+                                            <span class="input-group-text" id="visible-addon"><i
+                                                    class="bi bi-lock-fill"></i></span>
+                                            <input name="password" type="password" class="form-control" placeholder="Password"
+                                                aria-label="Password" aria-describedby="visible-addon">
+                                            @error('password')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Volver</button>
+                                        <button type="submit" class="btn btn-danger btn-eliminar">Eliminar</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
-                <script>
-                    const myModal = document.getElementById('myModal')
-                    const myInput = document.getElementById('myInput')
 
-                    myModal.addEventListener('shown.bs.modal', () => {
-                        myInput.focus()
-                    })
-                </script>
             </div>
 
 
