@@ -2,7 +2,9 @@
     <div class="container">
 
         <a class="navbar-brand" href="/">
-            Mi Sistema Laravel
+            Mi Sistema Laravel @if (Auth::check(Auth::User()))
+                | {{ Auth::user()->name }}
+            @endif
         </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
@@ -28,7 +30,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('contacto') }}">Contacto</a>
+                    <a class="nav-link" href="{{ route('profile.show') }}">Perfil</a>
                 </li>
                 @if (Auth::check(Auth::User()))
                     <li class="nav-item">

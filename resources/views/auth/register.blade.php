@@ -7,11 +7,11 @@
 
             <div class="d-flex justify-content-center align-items-center py-5">
 
-                <form action="{{ isset($user) ? route('usuarios.update', $user->id) : route('register') }}"
-                    method="POST" class="form">
+                <form action="{{ isset($user) ? route('usuarios.update', $user->id) : route('register') }}" method="POST"
+                    class="form">
                     @if (isset($user))
-                     <h2 class="heading">actualizacion del Usuario</h2>
-                     @method('PUT')
+                        <h2 class="heading">actualizacion del Usuario</h2>
+                        @method('PUT')
                     @else
                         <h2 class="heading">Registro del Usuario</h2>
                     @endif
@@ -49,7 +49,7 @@
 
 
                     <button type="submit" class="btn">
-                      {{ isset($user) ? 'Actualizar' : 'Registrar' }}  
+                        {{ isset($user) ? 'Actualizar' : 'Registrar' }}
                     </button>
 
                 </form>

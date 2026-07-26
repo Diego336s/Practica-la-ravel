@@ -2,11 +2,11 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Validation\Rules;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Http\Client\Request;
 
-class UsuarioRequest extends FormRequest
+class RegistroRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,14 +23,13 @@ class UsuarioRequest extends FormRequest
      */
     public function rules(): array
     {
-         
         return [
             "nombre" => "required|string|max:255",
             "apellido" => "required|string|max:255",
             "name" => 'required|string|max:255',
-            "email" => "required|email",
-            "documento" => 'required|string',
-            "password" => 'string|min:8'
+            "email" => "required|email|lowercase|unique:users,email,except,id",
+            "documento" => 'required|string|unique:users,documento,except,id',
+            "password" => ['required', 'min:8', Rules\Password::defaults()]
         ];
     }
 }
