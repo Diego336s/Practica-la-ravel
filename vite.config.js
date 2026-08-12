@@ -8,7 +8,6 @@ export default defineConfig({
             input: [
                 'resources/css/app.css',
                 'resources/js/app.js',
-                'resources/css/auth/login.css',
                 'resources/css/usuarios/index.css',
                 ...auth,
                 'resources/css/usuarios/view.css'
