@@ -1,6 +1,9 @@
 @extends('layouts.app')
+@push('styles')
+        @vite(['resources/css/usuarios/form.css'])
+@endpush
 @section('contenido')
-    @vite(['resources/css/usuarios/form.css'])
+
 
     <div class="container">
         <div class="row">

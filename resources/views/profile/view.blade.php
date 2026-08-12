@@ -1,6 +1,9 @@
 @extends('layouts.app')
+@push('styles')
+        @vite(['resources/css/usuarios/view.css'])
+@endpush
 @section('contenido')
-    @vite(['resources/css/usuarios/view.css'])
+
     <div class="container">
         @if (session('success'))
             <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">

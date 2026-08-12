@@ -1,6 +1,9 @@
 @extends('layouts.app')
+@push('styles')
+       @vite(['resources/css/auth/login.css']) 
+@endpush
 @section('contenido')
-    @vite(['resources/css/auth/login.css'])
+
     <div class="container centrar">
         <form method="POST" action="{{ route('login') }}">
             @csrf

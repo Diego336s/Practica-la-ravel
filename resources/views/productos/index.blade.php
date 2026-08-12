@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@vite(['resources/js/modal.js'])
+
 @section('contenido')
     <div class='container'>
         <h1>Productos</h1>
