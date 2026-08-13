@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
-import auth from 'vites/inputs/auth';
+import auth from './vites/inputs/auth';
 
 export default defineConfig({
     plugins: [
